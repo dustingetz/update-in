@@ -1,0 +1,37 @@
+{
+  "version": "0.0.1",
+  "scripts": {
+    "test": "karma start",
+    "build": "webpack"
+  },
+  "main": "./cursor.js",
+  "devDependencies": {
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.2",
+    "babelify": "^6.1.3",
+    "chai": "^1.9.2",
+    "clone": "^1.0.2",
+    "es5-shim": "^4.0.3",
+    "karma": "0.12.37",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.2.0",
+    "karma-mocha-reporter": "^1.1.1",
+    "karma-sinon-chai": "^1.1.0",
+    "karma-sourcemap-loader": "^0.3.5",
+    "karma-webpack": "1.6.0",
+    "mocha": "^2.0.1",
+    "react": "^0.14.2",
+    "uglifyify": "~2.6.0",
+    "webpack": "^1.11.0"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "array-union": "^1.0.0",
+    "deep-equal": "^0.2.1",
+    "lodash.isobject": "^3.0.2",
+    "omit-keys": "^0.1.0",
+    "react-addons-update": "^0.14.2"
+  }
+}
