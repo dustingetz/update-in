@@ -1,6 +1,6 @@
 {
   "name": "update-in",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.3",
   "description": "Persistent functional object updates on vanilla js data structures (wraps react-addons-update)",
   "keywords": [
     "react",
@@ -39,10 +39,8 @@
     "lodash": "^3.10.1",
     "mocha": "^2.0.1",
     "react": "^0.14.2",
-    "react-addons-test-utils": "^0.14.2",
     "uglifyify": "~2.6.0",
-    "webpack": "^1.11.0",
-    "webpack-dev-server": "^1.10.1"
+    "webpack": "^1.11.0"
   },
   "dependencies": {
     "array-union": "^1.0.0",
