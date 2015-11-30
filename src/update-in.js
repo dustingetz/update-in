@@ -1,6 +1,5 @@
 import {default as persistentUpdate} from 'react-addons-update';
 import isEqual from 'deep-equal';
-import apply from './apply';
 
 
 export function merge (a, b) {
@@ -26,7 +25,7 @@ export function splice (as, splices) {
  * preserving other references.
  */
 export function updateIn (rootVal, paths, f, ...args) {
-  let ff = (v) => apply(f, v, args);
+  let ff = (v) => f.apply(null, [v].concat(args));
 
   var newRootVal;
   if (paths.length > 0) {
