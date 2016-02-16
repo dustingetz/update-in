@@ -7,24 +7,23 @@ import {updateIn, merge, push, unshift, splice} from 'update-in';
 
 const val = {a: {b: 0, c: 2}, xs: [1, 2]};
 
-updateIn(val, ['a', 'b'], v => v+1)            // => {a: {b: 1, c: 2}, xs: [1, 2]}
-updateIn(val, ['a', 'b'], v => v+10)           // => {a: {b: 10, c: 2}, xs: [1, 2]}
+updateIn(val, ['a', 'b'], v => v+1)                            // => {a: {b: 1, c: 2}, xs: [1, 2]}
+updateIn(val, ['a', 'b'], v => v+10)                           // => {a: {b: 10, c: 2}, xs: [1, 2]}
 
 let add = (...args) => args.reduce((a,b)=>a+b, 0);
-updateIn(val, ['a', 'b'], add, 1, 2, 3)        // => {a: {b: 6, c: 2}, xs: [1, 2]}
+updateIn(val, ['a', 'b'], add, 1, 2, 3)                        // => {a: {b: 6, c: 2}, xs: [1, 2]}
 
-updateIn(val, ['a', 'b'], v => 99)             // => {a: {b: 99, c: 2}, xs: [1, 2]}
+updateIn(val, ['a', 'b'], v => 99)                             // => {a: {b: 99, c: 2}, xs: [1, 2]}
 
-merge({x: 1, y: 1}, {y: 2, z: 2}) // => {x: 1, y: 2, z: 2}
-updateIn(val, ['a'], merge, {c:99, d: 99})     // => {a: {b: 0, c: 99, d: 99}, xs: [1, 2]}
+merge({x: 1, y: 1}, {y: 2, z: 2})                              // => {x: 1, y: 2, z: 2}
+updateIn(val, ['a'], merge, {c:99, d: 99})                     // => {a: {b: 0, c: 99, d: 99}, xs: [1, 2]}
 
-push()
-updateIn(val, ['xs'], push, [3])               // => {a: {b: 0, c: 2}, xs: [1, 2, 3]}
-updateIn(val, ['xs'], push, [99])              // => {a: {b: 0, c: 2}, xs: [1, 2, 99]}
+updateIn(val, ['xs'], push, [3])                               // => {a: {b: 0, c: 2}, xs: [1, 2, 3]}
+updateIn(val, ['xs'], push, [99])                              // => {a: {b: 0, c: 2}, xs: [1, 2, 99]}
 
-updateIn(val, ['xs'], unshift, [0])            // => {a: {b: 0, c: 2}, xs: [0, 1, 2]}
+updateIn(val, ['xs'], unshift, [0])                            // => {a: {b: 0, c: 2}, xs: [0, 1, 2]}
 
-updateIn(val, ['xs'], splice, [[1, 1, 20]])    // => {a: {b: 0, c: 2}, xs: [1, 20]}
+updateIn(val, ['xs'], splice, [[1, 1, 20]])                    // => {a: {b: 0, c: 2}, xs: [1, 20]}
 updateIn(val, ['xs'], splice, [[0, 1, 6, 5], [4, 0, 99, 99]])  // => {a: {b: 0, c: 99, d: 99}, xs: [6,5,2,99,99]}
 ```
 
