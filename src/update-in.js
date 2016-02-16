@@ -19,6 +19,30 @@ export function splice (as, splices) {
   return persistentUpdate(as, {$splice: splices});
 }
 
+export function assoc(coll, ...kvs) {
+  if (kvs.length % 2 !== 0) throw new Error('assoc expects an even number of arguments');
+  const ps = pairs(kvs);
+
+  if (Array.isArray(coll)) {
+    ps.forEach(([k, v]) => {
+      if (! (typeof k === 'number' && parseInt(k, 10) === k)) throw new TypeError('assoc expects only integer keys');
+      if (k < 0 || k > coll.length) throw new RangeError('assoc expects only numeric keys in the range [0, array.length]');
+    });
+  }
+
+  return persistentUpdate(coll, {$apply: o => ps.reduce((acc, [k, v]) => { acc[k] = v; return acc; }, o)});
+}
+
+export function dissoc (coll, ...keys) {
+  if (Array.isArray(coll)) {
+    return persistentUpdate(coll, {$apply: a => a.filter((v,i) => keys.indexOf(i) === -1)});
+  } else {
+    return persistentUpdate(coll, {$apply: o => {
+      keys.forEach(k => delete o[k]);
+      return o;
+    }});
+  }
+}
 
 /**
  * Thin wrapper over react-addons-update to apply a function at path
@@ -65,4 +89,22 @@ function unDeref(obj, key) { // aka un-get
   var nextObj = {};
   nextObj[key] = obj;
   return nextObj;
+}
+
+// Other helper functions
+
+/**
+ *
+ * @param array e.g. [1, 2, 3, 4, 5, 6]
+ * @returns {Array} e.g. [[1, 2], [3, 4], [5, 6]]
+ */
+function pairs (array) {
+  let index = 0;
+  let pairs = [];
+
+  while (index < array.length) {
+    pairs.push([array[index++], array[index++]]);
+  }
+
+  return  pairs;
 }
