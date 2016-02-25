@@ -7,7 +7,7 @@ config.devtool = false;
 config.output = {
   path: path.resolve('./dist'),
   filename: 'update-in.min.js',
-  libraryTarget: 'umd',
+  libraryTarget: 'commonjs2',
   library: 'UpdateIn'
 };
 

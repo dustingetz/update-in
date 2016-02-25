@@ -24,7 +24,7 @@ module.exports = {
       {test: /\.js$/, loaders: ['babel'], include: path.resolve('./src')}
     ]
   },
-  
+
   externals: {
     'react-addons-update': 'react-addons-update',
     'deep-equal': 'deep-equal'

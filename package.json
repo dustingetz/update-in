@@ -17,6 +17,7 @@
     "test": "karma start",
     "start": "node server.js",
     "build": "webpack",
+    "watch": "webpack --watch",
     "dist": "webpack --config webpack.dist.js",
     "prepublish": "npm run dist"
   },
