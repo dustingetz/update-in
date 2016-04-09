@@ -7,7 +7,8 @@ module.exports = {
   output: {
     path: path.resolve('./dist'),
     filename: 'update-in.js',
-    publicPath: '/static/'
+    publicPath: '/static/',
+    libraryTarget: 'commonjs2'
   },
 
   resolve: {
@@ -22,5 +23,10 @@ module.exports = {
     loaders: [
       {test: /\.js$/, loaders: ['babel'], include: path.resolve('./src')}
     ]
+  },
+
+  externals: {
+    'react-addons-update': 'react-addons-update',
+    'deep-equal': 'deep-equal'
   }
 };

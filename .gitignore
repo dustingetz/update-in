@@ -1,6 +1,8 @@
 Thumbs.db
 .DS_STORE
 /node_modules
+npm-debug.log
 /bower_components
 *.iml
 .idea
+dist
